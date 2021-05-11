@@ -10,7 +10,7 @@ install_user_deploy() {
 install_core() {
   sudo bash <<EOS
 apt-get update
-apt-get install -y -q vim git tmux gnupg2 dirmngr dbus htop curl build-essential
+apt-get install -y -q vim git tmux dbus htop curl build-essential
 EOS
 }
 

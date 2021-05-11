@@ -1,8 +1,8 @@
-# OPX Packer modules
+# OPX Packer images
 
 This repository contains all Packer files used for OPX-based deployments
 
-## Base images
+## Base AWS images
 
 The list of base Debian 10 AMI's per region is as follows:
 |Region| AMI|
@@ -30,6 +30,21 @@ The list of base Debian 10 AMI's per region is as follows:
 |us-west-2	| ami-0c7ea5497c02abcaf|
 
 ## Cryptonodes
+
+### GCP
+
+1. Export GCP credentials and configuration:
+   ```bash
+   export PKR_VAR_sa_json_key=*path_to_json_key* # Could also be exported as GOOGLE_APPLICATION_CREDENTIALS env var
+   export PKR_VAR_project_id=example-project
+   export PKR_VAR_zone=europe-west1-b
+   export PKR_VAR_instance_type="n2-standard-16"
+   ```
+2. Build the image:
+    ```bash
+    packer build ./cryptonode-base/gcp-packer.json.pkr.hcl
+    ```
+After the build is finished, an image ID would be displayed, which could also be displayed at `Cloud Console > Compute > Images`
 
 ### AWS
 
